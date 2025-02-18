@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /jobsadmire-website-2
+    # Check if the request is not a directory
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Check if the request with .php extension exists
+    RewriteCond %{REQUEST_FILENAME}.php -f
+
+    # Rewrite to remove .php extension
+    RewriteRule ^(.*)$ $1.php [NC,L]
+</IfModule>
