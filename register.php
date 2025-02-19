@@ -11,6 +11,7 @@ ob_start();
 include './db/connection.php';
 session_start();
 
+unset($_SESSION['username']);
 if (isset($_SESSION["username"])) {
     header("Location: http://localhost/jobsadmire-website-2/templates.php");
     exit;
@@ -81,29 +82,39 @@ if (isset($_SESSION["username"])) {
 
 <?php
 if (isset($_POST['btn'])) {
-    var_dump($_POST); // To check if form data is being sent correctly
-    var_dump($_FILES); // To check if the image is being uploaded correctly
-    // die();
 
-    $name = $_POST['username'];
-    $phone = $_POST['con'];
-    $add = $_POST['address'];
-    $mail = $_POST['email'];
-    $pass = $_POST['password'];
-    $filename = $_FILES['txtfile']['name'];
+    $name        = $_POST['username'];
+    $phone       = $_POST['con'];
+    $add         = $_POST['address'];
+    $mail        = $_POST['email'];
+    $pass        = $_POST['password'];
+    $filename    = $_FILES['txtfile']['name'];
     $oldLocation = $_FILES['txtfile']['tmp_name'];
-    $newlocation = './cvmaker-assets/images/' . $filename;
+    $newlocation = '/home/ahzam/Downloads/php-projects/' . $filename;
+
+    if ($_FILES['txtfile']['error'] !== UPLOAD_ERR_OK) {
+        die("File upload error: " . $_FILES['txtfile']['error']);
+    }
+
     move_uploaded_file($oldLocation, $newlocation);
 
     $_SESSION['success'] = 'success';
 
     $query = mysqli_query(
     $con,
-    "INSERT INTO register (username, email, password)
-    VALUES ('$name', '$mail', '$pass')"
+    "INSERT INTO register (username, email, password, phone, address, profile_pic)
+    VALUES ('$name', '$mail', '$pass', '$phone', '$add', '$filename')"
 );
 
+$query2 = mysqli_query($con, "INSERT INTO cv_data (username, email, phone, address, user_img)
+    VALUES ('$name', '$mail', '$phone', '$add', '$filename')");
+
 if ($query) {
+    echo "Data inserted successfully";
+} else {
+    echo "Error: " . mysqli_error($con);
+}
+if ($query2) {
     echo "Data inserted successfully";
 } else {
     echo "Error: " . mysqli_error($con);

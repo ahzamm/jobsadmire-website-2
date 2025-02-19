@@ -8,6 +8,10 @@ $query = "select * from cv_data where username = '$username'";
 $query_run = mysqli_query($con, $query);
 $row = mysqli_fetch_array($query_run);
 
+
+// var_dump($row[3]);
+// die();
+
 if ($username == $row[3]) {
     $fetch_id = $_GET["id"];
 

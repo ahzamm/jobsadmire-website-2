@@ -6,6 +6,12 @@ include "$base_dir/header.php";
 $navlink_content = ob_get_clean();
 $page = 'aboutus';
 ob_start();
+session_start();
+// echo $_SESSION["username"];
+if (!isset($_SESSION["username"])) {
+    header("Location: http://localhost/jobsadmire-website-2/login.php");
+    exit;
+}
 ?>
 
 <link rel="stylesheet" href="./cvmaker-assets/css/style-starter.css">

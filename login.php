@@ -10,11 +10,11 @@ ob_start();
 include './db/connection.php';
 session_start();
 
-// unset($_SESSION['username']);
-if (isset($_SESSION["username"])) {
-    header("Location: http://localhost/jobsadmire-website-2/templates.php");
-    exit;
-} else {
+unset($_SESSION['username']);
+if (isset($_SESSION['username'])) {
+    header('Location: http://localhost/jobsadmire-website-2/templates.php');
+    exit();
+}
 ?>
 
 <link rel="stylesheet" href="./cvmaker-assets/css/bootstrap.min.css">
@@ -28,10 +28,10 @@ if (isset($_SESSION["username"])) {
         <?php
         if (isset($_SESSION['success'])) {
             echo "
-                        <div style='padding-top:20px;'>
-                        <div class='alert alert-success'><b>Success!</b> Your account has been successfully created. You can now proceed to login </div>
-                        </div>
-                        ";
+                                        <div style='padding-top:20px;'>
+                                        <div class='alert alert-success'><b>Success!</b> Your account has been successfully created. You can now proceed to login </div>
+                                        </div>
+                                        ";
         }
         ?>
 
@@ -102,7 +102,4 @@ if (isset($_POST['login'])) {
 $hero_content = ob_get_clean();
 include "$base_dir/base.php";
 include "$base_dir/quick-job-apply.php";
-
-}
-
 ?>

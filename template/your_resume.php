@@ -69,14 +69,7 @@ if ($username == $row[3]) {
     <div class="col-sm-3 col-md-2 sidebar">
         <div class="sidebar_top">
             <h1 class="text-center"><?php echo $row[3]; ?></h1>
-            <?php
-            echo "
-                                                  <img src='assets/images/" .
-                $row['user_img'] .
-                "' alt='' >
-                                                
-                                                ";
-            ?>
+            <?php echo "<img src='../cvmaker-assets/images/" . $row['user_img'] . "' alt='' >"; ?>
         </div>
         <div class="details">
             <h3>PHONE</h3>

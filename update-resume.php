@@ -10,6 +10,11 @@ $navlink_content = ob_get_clean();
 $page = 'aboutus';
 ob_start();
 
+if (!isset($_SESSION["username"])) {
+    header("Location: http://localhost/jobsadmire-website-2/login.php");
+    exit;
+}
+
 $username = $_SESSION['username'];
 $query = "select * from cv_data where username = '$username'";
 $query_run = mysqli_query($con, $query);
