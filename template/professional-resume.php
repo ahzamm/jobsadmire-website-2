@@ -72,7 +72,7 @@ if ($username == $row[3]) {
             <div class="side-bar">
                 <div class="mugshot">
                     <div class="logo">
-                        <?php echo "<img src='cvmaker-assets/images/" . $row['user_img'] . "' alt='' height='100%' width='100%'>"; ?>
+                        <?php echo "<img src='../cvmaker-assets/images/" . $row['user_img'] . "' alt='' height='100%' width='100%'>"; ?>
 
                         <!-- <p class="logo-text">kj</p> -->
                     </div>

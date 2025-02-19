@@ -50,7 +50,7 @@ if ($username == $row[3]) {
                             <div class="form-group">
                                 <div class="img-wrapper">
                                     <div id="imageContainer">
-                                        <img id="selectedImage" name="myImage" src="assets/images/<?php echo $row['user_img']; ?>">
+                                        <img id="selectedImage" name="myImage" src="./cvmaker-assets/images/<?php echo $row['user_img']; ?>">
                                     </div>
                                     <ul>
                                         <li class="pt-4">
