@@ -109,9 +109,11 @@
                 <li class="has-submenu parent-menu-item ">
                     <a href="contact">Contact</a>
                 </li>
-                <li class="has-submenu parent-parent-menu-item"><a href="https://crm2.techadmire.agency/login">Login</a><span class="menu-arrow"></span>
+                <li class="has-submenu parent-parent-menu-item">
+                    <a href="/jobsadmire-website-2/login.php">Login</a><span class="menu-arrow"></span>
                     <ul class="submenu">
-                        <li><a href="signup" class="sub-menu-item">Sign up</a></li>
+                        <li><a href="/jobsadmire-website-2/register.php" class="sub-menu-item">Sign up</a></li>
+                        <li><a href="/jobsadmire-website-2/logout.php" class="sub-menu-item">Logout</a></li>
                     </ul>
                 </li>
             </ul>

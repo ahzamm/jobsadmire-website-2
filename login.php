@@ -10,7 +10,7 @@ ob_start();
 include './db/connection.php';
 session_start();
 
-unset($_SESSION['username']);
+// unset($_SESSION['username']);
 if (isset($_SESSION['username'])) {
     header('Location: http://localhost/jobsadmire-website-2/templates.php');
     exit();

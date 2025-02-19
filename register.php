@@ -11,11 +11,12 @@ ob_start();
 include './db/connection.php';
 session_start();
 
-unset($_SESSION['username']);
-if (isset($_SESSION["username"])) {
-    header("Location: http://localhost/jobsadmire-website-2/templates.php");
-    exit;
-} else {
+// unset($_SESSION['username']);
+if (isset($_SESSION['username'])) {
+    header('Location: http://localhost/jobsadmire-website-2/templates.php');
+    exit();
+}
+?>
 
 ?>
 <link rel="stylesheet" href="./cvmaker-assets/css/bootstrap.min.css">
@@ -132,7 +133,4 @@ if ($query2) {
 $hero_content = ob_get_clean();
 include "$base_dir/base.php";
 include "$base_dir/quick-job-apply.php";
-
-}
-
 ?>
