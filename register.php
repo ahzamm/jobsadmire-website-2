@@ -83,14 +83,16 @@ if (isset($_SESSION["username"])) {
 <?php
 if (isset($_POST['btn'])) {
 
-    $name        = $_POST['username'];
-    $phone       = $_POST['con'];
-    $add         = $_POST['address'];
-    $mail        = $_POST['email'];
-    $pass        = $_POST['password'];
-    $filename    = $_FILES['txtfile']['name'];
-    $oldLocation = $_FILES['txtfile']['tmp_name'];
-    $newlocation = '/home/ahzam/Downloads/php-projects/' . $filename;
+    $name         = $_POST['username'];
+    $phone        = $_POST['con'];
+    $add          = $_POST['address'];
+    $mail         = $_POST['email'];
+    $pass         = $_POST['password'];
+    $originalName = $_FILES['txtfile']['name'];
+    $fileExt      = pathinfo($originalName, PATHINFO_EXTENSION);
+    $filename     = uniqid('img_', true) . '.' . $fileExt;
+    $oldLocation  = $_FILES['txtfile']['tmp_name'];
+    $newlocation  = './cvmaker-assets/images/' . $filename;
 
     if ($_FILES['txtfile']['error'] !== UPLOAD_ERR_OK) {
         die("File upload error: " . $_FILES['txtfile']['error']);
